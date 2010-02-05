@@ -27,4 +27,4 @@ DoubleSlider also provides start, drag, and complete events.
       }
     );
 
-For specific usage and options, please read the documentation or visit [http://moo.medienpark.net/DoubleSlider/](http://moo.medienpark.net/DoubleSlider/)
+For specific usage and options, please read the documentation or visit [http://moo.medienpark.net/DoubleSlider/docs.html](http://moo.medienpark.net/DoubleSlider/docs.html)
