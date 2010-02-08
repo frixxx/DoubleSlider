@@ -1,14 +1,13 @@
 /*
 ---
-description: DoubleSlider is a Script to give you a Slider Component with two knobs instead of one.
+description: DoubleSlider
+
+authors:
+  - Matthias Goebels (http://moo.medienpark.net)
 
 license: MIT-style
 
-authors:
-- Matthias Goebels
-
 requires:
-  - core/1.2.4: 
   - core/1.2.4: Class.Extras
   - core/1.2.4: Array
   - core/1.2.4: Function
@@ -19,9 +18,7 @@ requires:
   - core/1.2.4: Fx.Transitions
 
 provides: [DoubleSlider]
-
 */
-
 var DoubleSlider = new Class({
 
 	Implements: [Events, Options],
