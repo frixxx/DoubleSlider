@@ -18,6 +18,8 @@ requires:
   - core/1.2.4: Fx.Transitions
 
 provides: [DoubleSlider]
+
+...
 */
 var DoubleSlider = new Class({
 
