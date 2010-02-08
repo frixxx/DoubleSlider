@@ -8,17 +8,18 @@ authors:
 - Matthias Goebels
 
 requires:
-  core:1.2.3: 
-  - Class.Extras
-  - Array
-  - Function
-  - Event
-  - Element.Style
-  - Element.Dimensions
-  - Fx.Morph
-  - Fx.Transitions
+  - core/1.2.4: 
+  - core/1.2.4: Class.Extras
+  - core/1.2.4: Array
+  - core/1.2.4: Function
+  - core/1.2.4: Event
+  - core/1.2.4: Element.Style
+  - core/1.2.4: Element.Dimensions
+  - core/1.2.4: Fx.Morph
+  - core/1.2.4: Fx.Transitions
 
 provides: [DoubleSlider]
+
 */
 
 var DoubleSlider = new Class({

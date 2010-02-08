@@ -5,18 +5,21 @@ DoubleSlider is a Script to give you a Slider Component with two knobs instead o
 
 ![Screenshot](http://moo.medienpark.net/DoubleSlider/screen.png)
 
-How to Use
+How to use
 ----------
 
 The best way to use the DoubleSlider is to initialize it onDomReady. The first argument is the DoubleSliders "container" which contains the knobs. Options can be given as the second argument.
 
 DoubleSlider also provides start, drag, and complete events.
 
+*Html*
+
 ### HTML
     <div id="doubleslider">
       <div></div><div></div>
     </div>
 
+*Javascript*
 
 ### Javascript
     var doubleslider = new DoubleSlider(
