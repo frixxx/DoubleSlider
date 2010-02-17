@@ -1,4 +1,4 @@
-DoubleSlider
+DoubleSlider (Real Docs Follow Soon)
 =========
 
 DoubleSlider is a Script to give you a Slider Component with two knobs instead of one. It provides horizontal and vertical Sliding.
