@@ -12,11 +12,6 @@ The best way to use the DoubleSlider is to initialize it onDomReady. The first a
 
 DoubleSlider also provides start, drag, and complete events.
 
-### HTML
-    <div id="doubleslider">
-      <div></div><div></div>
-    </div>
-
 ### Javascript
     var doubleslider = new DoubleSlider(
       'doubleslider',

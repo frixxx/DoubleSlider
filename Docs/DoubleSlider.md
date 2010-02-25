@@ -1,29 +1,58 @@
-DoubleSlider (Real Docs Follow Soon)
+Class: DoubleSlider
 =========
 
 DoubleSlider is a Script to give you a Slider Component with two knobs instead of one. It provides horizontal and vertical Sliding.
 
-![Screenshot](http://moo.medienpark.net/DoubleSlider/screen.png)
+### Implements:
+Events, Options
 
-How to use
-----------
+## DoubleSlider Method: constructor
 
-The best way to use the DoubleSlider is to initialize it onDomReady. The first argument is the DoubleSliders "container" which contains the knobs. Options can be given as the second argument.
+### Syntax:
+    new DoubleSlider('DoubleSliderElement');
 
-DoubleSlider also provides start, drag, and complete events.
+### Arguments:
+1. container - (string) The Id of the container which will represent the DoubleSlider.
+2. options - (**) The options for the DoubleSlider instance.
 
-### HTML
-    <div id="doubleslider">
-      <div></div><div></div>
-    </div>
+### Options:
+- range - (array, defaults [200, 600]) - The min and max data for the Slider-Area.
+- start - (array, defaults [0, 0]) - The start and end data inside the Slider-Area.
+- mode - (string, defaults 'horizontal') - The direction of the Slider (horizontal|vertical).
+- knobs - (string, defaults divs inside the slider) - The Class of the knob-elements.
 
-### Javascript
-    var doubleslider = new DoubleSlider(
-      'doubleslider',
-      {
-        range: [0, 8],
-        start: [1, 7]
-      }
-    );
+### Events:
+##### onChange
+- (function) Function to execute when the knob values change.
+##### Signature
+    onChange: function(values)
+##### Example
+    onChange: function(values)
+    {
+      alert(values.knob_left + ' - ' + values.knob_right);
+    }
 
-For specific usage and options, please read the documentation or visit [http://moo.medienpark.net/DoubleSlider/](http://moo.medienpark.net/DoubleSlider/)
+--------------------------------------
+##### onStart
+- (function) Function to execute the dragging starts.
+##### Signature
+    onStart: function(values)
+##### Example
+    onStart: function(values)
+    {
+      alert(values.knob_left + ' - ' + values.knob_right);
+    }
+
+--------------------------------------
+
+##### onComplete
+- (function) Function to execute the dragging starts.
+##### Signature
+    onComplete: function(values)
+##### Example
+    onComplete: function(values)
+    {
+      alert(values.knob_left + ' - ' + values.knob_right);
+    }
+
+--------------------------------------
