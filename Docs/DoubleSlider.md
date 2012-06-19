@@ -3,7 +3,7 @@ Class: DoubleSlider
 
 DoubleSlider is a Script to give you a Slider Component with two knobs instead of one. It provides horizontal and vertical Sliding.
 
-### Implements:
+## Implements:
 Events, Options
 
 ## DoubleSlider Method: constructor
@@ -16,43 +16,58 @@ Events, Options
 2. options - (**) The options for the DoubleSlider instance.
 
 ### Options:
-- range - (array, defaults [200, 600]) - The min and max data for the Slider-Area.
-- start - (array, defaults [0, 0]) - The start and end data inside the Slider-Area.
-- mode - (string, defaults 'horizontal') - The direction of the Slider (horizontal|vertical).
-- knobs - (string, defaults divs inside the slider) - The Class of the knob-elements.
+- knobSelector - (string, defaults 'div') - The CSS Selector to retrieve the knob elements.
+- range - (array, defaults [0, 100]) - The start and end data inside the Slider-Area.
+- start - (array, defaults [0, 100]) - The start values of the Knobs.
 
-### Events:
-##### onChange
+## Events:
+
+### onStart
+- (function) Function to execute when the sliding begins
+#### Signature
+    onStart: function()
+#### Example
+    onStart: function()
+    {
+      alert("dragging begins");
+    }
+
+### onChange
 - (function) Function to execute when the knob values change.
-##### Signature
-    onChange: function(values)
-##### Example
-    onChange: function(values)
+#### Signature
+    onChange: function(firstValue, secondValue)
+#### Example
+    onChange: function(firstValue, secondValue)
     {
-      alert(values.knob_left + ' - ' + values.knob_right);
+      alert(firstValue + ' - ' + secondValue);
     }
 
---------------------------------------
-##### onStart
-- (function) Function to execute the dragging starts.
-##### Signature
-    onStart: function(values)
-##### Example
-    onStart: function(values)
+### onComplete
+- (function) Function to execute when the sliding begins
+#### Signature
+    onComplete: function()
+#### Example
+    onComplete: function()
     {
-      alert(values.knob_left + ' - ' + values.knob_right);
+      alert("dragging ends");
     }
 
---------------------------------------
+## CSS:
+The important part to use the DoubleSlider is to set the position style correct.
 
-##### onComplete
-- (function) Function to execute the dragging starts.
-##### Signature
-    onComplete: function(values)
-##### Example
-    onComplete: function(values)
+The wrapper/container which contains the knobs need the following style:
+
+    .wrapper
     {
-      alert(values.knob_left + ' - ' + values.knob_right);
+      position: relative;
     }
 
---------------------------------------
+The knobs need the following style:
+
+    .wrapper .knob
+    {
+      /* of course you can play with the top and left values if you like */
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
