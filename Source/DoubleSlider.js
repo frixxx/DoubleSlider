@@ -1,21 +1,21 @@
 /*
- ---
- description: DoubleSlider
+---
+description: DoubleSlider
 
- authors:
- - Matthias Goebels (http://js.frixxx.de)
+license: MIT-style
 
- license: MIT-style
+authors:
+- Matthias Goebels (http://js.frixxx.de)
 
- requires:
- - core/1.2.4: *
- - more/1.4.0.1: Drag
+requires:
+- core/1.2.4: '*'
+- more/1.4.0.1: Drag
 
+provides: [DoubleSlider]
 
- provides: [DoubleSlider]
+...
+*/
 
- ...
- */
 var DoubleSlider = new Class({
 
     Implements: [Options, Events],
