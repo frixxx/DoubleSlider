@@ -10,7 +10,7 @@ How to use
 
 The best way to use the DoubleSlider is to initialize it onDomReady. The first argument is the DoubleSliders "container" which contains the knobs. Options can be given as the second argument.
 
-DoubleSlider also provides start, valuesChanged, and complete events.
+DoubleSlider also provides start, change, and complete events.
 
 ### Javascript
     var doubleslider = new DoubleSlider(
