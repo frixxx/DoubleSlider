@@ -23,7 +23,8 @@ var DoubleSlider = new Class({
     options: {
         knobSelector: 'div',
         range: [0, 100],
-        start: [0, 100]
+        start: [0, 100],
+        steps: null
     },
 
     initialize: function(element, options)
@@ -56,6 +57,9 @@ var DoubleSlider = new Class({
 
         // Calculating the multiplier for the Pixel to Unit Translation (Unit -> options.range)
         this.multiplier = this.range / this.options.range[1];
+
+        // Calculating the Pixels for the Drag-Grid based on the steps option
+        this.grid = (this.options.steps !== null) ? Math.round(this.range / this.options.steps) : this.grid = null;
     },
 
     initKnobs: function()
@@ -80,6 +84,11 @@ var DoubleSlider = new Class({
             onDrag: this.onChange.bind(this),
             onBeforeStart: this.onStart.bind(this)
         };
+
+        // Init Grid if necessary
+        if(this.grid !== null) dragOptions.grid = this.grid;
+
+        // Init Knob-Drags
         this.drags = [
             new Drag(this.knobs[0], dragOptions),
             new Drag(this.knobs[1], dragOptions)
