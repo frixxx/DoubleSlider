@@ -129,9 +129,9 @@ var DoubleSlider = new Class({
         // Set the initial Range-Element position
         if(this.rangeElement !== null)
         {
-            var rangeLeft = posKnob1 + Math.round(this.knobs[0].getSize()[this.axis] / 2);
+            var rangeLeft = posKnob1 + (this.knobs[0].getSize()[this.axis] / 2).round(0);
             this.rangeElement.setStyle(this.property, rangeLeft + 'px');
-            this.rangeElement.setStyle(this.sizeProperty, ((posKnob2 - rangeLeft) + Math.round(this.knobs[1].getSize()[this.axis] / 2)) + 'px');
+            this.rangeElement.setStyle(this.sizeProperty, ((posKnob2 - rangeLeft) + (this.knobs[1].getSize()[this.axis] / 2).round(0)) + 'px');
         }
     },
 
@@ -173,7 +173,7 @@ var DoubleSlider = new Class({
 
     translatePixelToRange: function(value)
     {
-        return (((value * this.range) / this.pixelRange) + this.offset).round(0);
+        return (((value * this.range) / this.pixelRange) + this.offset).round(this.options.precision);
     },
 
     onChange: function(e)
