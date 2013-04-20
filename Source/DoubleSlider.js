@@ -24,7 +24,8 @@ var DoubleSlider = new Class({
         knobSelector: 'div',
         range: [0, 100],
         start: [null, null],
-        steps: null
+        steps: null,
+        precision: 0
     },
 
     initialize: function(element, options)
@@ -36,7 +37,7 @@ var DoubleSlider = new Class({
         this.initOrentation();
         this.initKnobs();
         this.updateKnobRange();
-        this.fireEvent('change', [this.options.start[0], this.options.start[1]]);
+        this.fireEvent('change', [(this.options.start[0]).round(this.options.precision), (this.options.start[1]).round(this.options.precision)]);
     },
 
     initOptions: function()
@@ -68,15 +69,10 @@ var DoubleSlider = new Class({
 
         // Calculating the Pixels for the Drag-Grid based on the steps option
         this.grid = (this.options.steps !== null) ? this.range / this.options.steps : null;
-        console.log(this.grid);
     },
 
     initKnobs: function()
     {
-
-        console.log();
-
-
         // Set the initial knob positions
         this.knobs[0].setStyle(this.property, Math.round(this.translateRangeToPixel(this.options.start[0] - this.options.range[0])) + 'px');
 
@@ -137,7 +133,7 @@ var DoubleSlider = new Class({
     translatePixelToRange: function(pixel)
     {
         var percent = pixel / (this.range / 100);
-        return Math.round((percent * (this.diff / 100)) + this.options.range[0]);
+        return ((percent * (this.diff / 100)) + this.options.range[0]).round(this.options.precision);
     },
 
     onChange: function(e)

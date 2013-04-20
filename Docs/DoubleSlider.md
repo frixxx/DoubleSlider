@@ -19,7 +19,8 @@ Events, Options
 - knobSelector - (string, defaults 'div') - The CSS Selector to retrieve the knob elements.
 - range - (array, defaults [0, 100]) - The start and end data inside the Slider-Area.
 - start - (array, defaults [0, 100]) - The start values of the Knobs.
-- steps - (number, defaults to null) - Amount of steps the slider-dimension is divided into
+- steps - (number, defaults to null) - Amount of steps the slider-dimension is divided into.
+- precision - (number, defaults to 0) - Precision for float values.
 
 ## Events:
 
