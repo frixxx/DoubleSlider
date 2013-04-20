@@ -23,6 +23,15 @@ Events, Options
 - steps - (number, defaults to null) - Amount of steps the slider-dimension is divided into.
 - precision - (number, defaults to 0) - Precision for float values.
 
+## DoubleSlider Method: setKnobs
+
+### Syntax:
+    slider.setKnobs(20, 80);
+
+### Arguments:
+1. firstKnobValue - (integer, defaults null) - Value for the first knob as integer or null (= knob does not move).
+2. secondKnobValue - (integer, defaults null) - Value for the second knob as integer or null (= knob does not move).
+
 ## Events:
 
 ### onStart
