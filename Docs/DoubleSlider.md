@@ -17,6 +17,7 @@ Events, Options
 
 ### Options:
 - knobSelector - (string, defaults 'div') - The CSS Selector to retrieve the knob elements.
+- rangeSelector - (string, defaults 'span') - The CSS Selector to retrieve the range element.
 - range - (array, defaults [0, 100]) - The start and end data inside the Slider-Area.
 - start - (array, defaults [0, 100]) - The start values of the Knobs.
 - steps - (number, defaults to null) - Amount of steps the slider-dimension is divided into.
@@ -72,4 +73,16 @@ The knobs need the following style:
       position: absolute;
       top: 0px;
       left: 0px;
+    }
+
+If you want to use the knobRange element you might want to change the z-index:
+
+    .wrapper .knob
+    {
+      z-index: 2;
+    }
+
+    .wrapper .range
+    {
+      z-index: 1;
     }

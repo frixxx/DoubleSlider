@@ -22,6 +22,7 @@ var DoubleSlider = new Class({
 
     options: {
         knobSelector: 'div',
+        rangeSelector: 'span',
         range: [0, 100],
         start: [null, null],
         steps: null,
@@ -33,9 +34,11 @@ var DoubleSlider = new Class({
         this.setOptions(options);
         this.element = document.id(element);
         this.knobs = this.element.getElements(this.options.knobSelector);
+        var rangeElements = this.element.getElements(this.options.rangeSelector);
+        this.rangeElement = (rangeElements.length > 0) ? rangeElements[0] : null;
         this.initOptions();
         this.initOrentation();
-        this.initKnobs();
+        this.initElements();
         this.updateKnobRange();
         this.fireEvent('change', [(this.options.start[0]).round(this.options.precision), (this.options.start[1]).round(this.options.precision)]);
     },
@@ -54,11 +57,13 @@ var DoubleSlider = new Class({
         {
             this.axis = 'x';
             this.property = 'left';
+            this.sizeProperty = 'width';
         }
         else
         {
             this.axis = 'y';
             this.property = 'top';
+            this.sizeProperty = 'height';
         }
 
         // Calculationg the Pixel Range the knobs can drag in
@@ -71,7 +76,7 @@ var DoubleSlider = new Class({
         this.grid = (this.options.steps !== null) ? this.range / this.options.steps : null;
     },
 
-    initKnobs: function()
+    initElements: function()
     {
         // Set the initial knob positions
         this.knobs[0].setStyle(this.property, Math.round(this.translateRangeToPixel(this.options.start[0] - this.options.range[0])) + 'px');
@@ -84,6 +89,8 @@ var DoubleSlider = new Class({
         {
             this.knobs[1].setStyle(this.property, (this.knobs[0].getStyle(this.property).toInt() + this.knobs[0].getSize()[this.axis]) + 'px');
         }
+
+        this.updateRangeElement();
 
         // Init Drag Objects
         var dragOptions = {
@@ -102,6 +109,21 @@ var DoubleSlider = new Class({
             new Drag(this.knobs[0], dragOptions),
             new Drag(this.knobs[1], dragOptions)
         ];
+    },
+
+    updateRangeElement: function()
+    {
+        // Set the initial knob positions
+        var posKnob1 = this.knobs[0].getStyle(this.property).toInt();
+        var posKnob2 = this.knobs[1].getStyle(this.property).toInt();
+
+        // Set the initial Range-Element position
+        if(this.rangeElement !== null)
+        {
+            var rangeLeft = posKnob1 + Math.round(this.knobs[0].getSize()[this.axis] / 2);
+            this.rangeElement.setStyle(this.property, rangeLeft + 'px');
+            this.rangeElement.setStyle(this.sizeProperty, ((posKnob2 - rangeLeft) + Math.round(this.knobs[1].getSize()[this.axis] / 2)) + 'px');
+        }
     },
 
     updateKnobRange: function()
@@ -138,6 +160,8 @@ var DoubleSlider = new Class({
 
     onChange: function(e)
     {
+        this.updateRangeElement();
+
         // translate pixel to range
         var values = [];
         values.push(this.translatePixelToRange(this.knobs[0].getStyle(this.property).toInt()));
