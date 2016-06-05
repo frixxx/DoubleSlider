@@ -1,6 +1,8 @@
 DoubleSlider
 =========
 
+__ATTENTION:__ This project is no longer maintained!
+
 DoubleSlider is a Script to give you a Slider Component with two knobs instead of one. It provides horizontal and vertical Sliding.
 
 ![Screenshot](http://moo.medienpark.net/DoubleSlider/screen.png)
@@ -21,4 +23,4 @@ DoubleSlider also provides start, change, and complete events.
       }
     );
 
-For specific usage and options, please read the documentation or visit [http://js.frixxx.de/projects/DoubleSlider/](http://js.frixxx.de/projects/DoubleSlider/)
+For specific usage and options, please read the documentation.
