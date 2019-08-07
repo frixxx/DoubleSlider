@@ -1,4 +1,4 @@
-DoubleSlider
+DoubleSlider - Deprecated
 =========
 
 __ATTENTION:__ This project is no longer maintained!
